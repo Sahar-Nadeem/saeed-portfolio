@@ -91,50 +91,62 @@ if (navToggle && navLinks) {
   });
 })();
 
-// ---------- scroll reveal (elements move up + fade in as you scroll) ----------
-(function scrollReveal() {
+// ---------- scroll motion (elements continuously track scroll position — move + fade as you scroll, like the reference video) ----------
+(function scrollMotion() {
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const selectors = [
-    '.section-head', '.lede', '.stat-row', '.brand-strip span',
-    '.preview-card', '.cta-banner h2', '.cta-banner p', '.cta-banner .btn',
+    '.section-head', '.lede', '.stat-row', '.preview-card',
+    '.cta-banner h2', '.cta-banner p',
     '.about-portrait', '.about-lede', '.about-body p', '.skill-tags span',
-    '.timeline-item', '.mini-grid .eyebrow', '.mini-list li',
+    '.timeline-item', '.mini-list li',
     '.filter-bar', '.work-card', '.note-card',
-    '.contact-list li', '.social-row a', '.form-field', '.contact-grid .eyebrow'
+    '.contact-list li', '.form-field'
   ];
 
-  const targets = document.querySelectorAll(selectors.join(','));
-  if (!targets.length) return;
+  const els = document.querySelectorAll(selectors.join(','));
+  if (!els.length) return;
 
   if (prefersReduced) {
-    targets.forEach(el => el.classList.add('reveal', 'in-view'));
+    els.forEach(el => { el.style.opacity = 1; });
     return;
   }
 
-  // group by parent so siblings stagger together instead of all at once
-  const groups = new Map();
-  targets.forEach(el => {
-    const parent = el.parentElement;
-    if (!groups.has(parent)) groups.set(parent, []);
-    groups.get(parent).push(el);
-  });
+  // build a stable per-element amplitude + direction so motion feels varied, not robotic
+  const items = Array.from(els).map((el, i) => ({
+    el,
+    amp: 56 + (i % 5) * 14,
+    sideways: el.classList.contains('about-portrait') ? -1 : 0
+  }));
 
-  groups.forEach(list => {
-    list.forEach((el, i) => {
-      el.classList.add('reveal');
-      el.style.transitionDelay = `${Math.min(i * 70, 420)}ms`;
+  let ticking = false;
+
+  function update() {
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    items.forEach(({ el, amp, sideways }) => {
+      const r = el.getBoundingClientRect();
+      if (r.bottom < -200 || r.top > vh + 200) { return; } // skip far-offscreen for perf
+      const center = r.top + r.height / 2;
+      const progress = (center - vh / 2) / (vh * 0.7); // -1 = above center, +1 = below center
+      const clamped = Math.max(-1, Math.min(1, progress));
+      const translateY = clamped * amp;
+      const translateX = sideways ? clamped * amp * 0.6 : 0;
+      const opacity = 1 - Math.min(1, Math.abs(clamped) * 0.95);
+      const scale = 1 - Math.min(1, Math.abs(clamped)) * 0.05;
+      el.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+      el.style.opacity = Math.max(0, opacity);
     });
-  });
+    ticking = false;
+  }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  }
 
-  targets.forEach(el => observer.observe(el));
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  update();
 })();
