@@ -93,7 +93,7 @@ h1,h2,h3,h4{
 .blob.mint{ background-color:var(--mint); border-radius:40% 60% 45% 55%/60% 40% 60% 40%; animation-duration:7s; animation-delay:-1.5s; }
 .blob svg{
   width:46%; height:46%;
-  color:var(--paper);
+  color:var(--ink);
   opacity:.95;
   filter:drop-shadow(0 2px 3px rgba(0,0,0,.35));
 }
