@@ -1,4 +1,4 @@
- /* ============================================================
+/* ============================================================
    SAEED AHMED — PORTFOLIO
    Design tokens: paper / clay-purple / clay-yellow / coral
    Playful 3D-clay, bold condensed type, floating blob motif
@@ -100,6 +100,26 @@ h1,h2,h3,h4{
   70%{ opacity:1; transform:scale(1.08) rotate(2deg); }
   100%{ opacity:1; transform:scale(1) rotate(0deg); }
 }
+
+/* ---------- scroll reveal (JS adds .reveal on load, .in-view on scroll-into-view) ---------- */
+.reveal{
+  opacity:0;
+  transform:translateY(46px) scale(.97);
+  transition:opacity .7s cubic-bezier(.16,.8,.3,1), transform .7s cubic-bezier(.16,.8,.3,1);
+  will-change:transform, opacity;
+}
+.reveal.in-view{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+/* elements that should rotate slightly into place instead of a plain rise */
+.preview-card.reveal{ transform:translateY(46px) scale(.9) rotate(-3deg); }
+.preview-card.reveal.in-view{ transform:translateY(0) scale(1) rotate(0deg); }
+.work-card.reveal{ transform:translateY(46px) scale(.94) rotate(2deg); }
+.work-card.reveal.in-view{ transform:translateY(0) scale(1) rotate(0deg); }
+.skill-tags span.reveal{ transform:translateY(20px) scale(.8); }
+.about-portrait.reveal{ transform:translateX(-40px) rotate(-4deg); }
+.about-portrait.reveal.in-view{ transform:translateX(0) rotate(0deg); }
 
 /* ---------- eyebrow / labels ---------- */
 .eyebrow{
