@@ -101,25 +101,16 @@ h1,h2,h3,h4{
   100%{ opacity:1; transform:scale(1) rotate(0deg); }
 }
 
-/* ---------- scroll reveal (JS adds .reveal on load, .in-view on scroll-into-view) ---------- */
-.reveal{
-  opacity:0;
-  transform:translateY(46px) scale(.97);
-  transition:opacity .7s cubic-bezier(.16,.8,.3,1), transform .7s cubic-bezier(.16,.8,.3,1);
+/* ---------- scroll motion (JS sets transform/opacity inline per scroll frame — see main.js) ---------- */
+.section-head, .lede, .stat-row, .preview-card,
+.cta-banner h2, .cta-banner p,
+.about-portrait, .about-lede, .about-body p, .skill-tags span,
+.timeline-item, .mini-list li,
+.filter-bar, .work-card, .note-card,
+.contact-list li, .form-field{
+  transition:transform .12s linear, opacity .12s linear;
   will-change:transform, opacity;
 }
-.reveal.in-view{
-  opacity:1;
-  transform:translateY(0) scale(1);
-}
-/* elements that should rotate slightly into place instead of a plain rise */
-.preview-card.reveal{ transform:translateY(46px) scale(.9) rotate(-3deg); }
-.preview-card.reveal.in-view{ transform:translateY(0) scale(1) rotate(0deg); }
-.work-card.reveal{ transform:translateY(46px) scale(.94) rotate(2deg); }
-.work-card.reveal.in-view{ transform:translateY(0) scale(1) rotate(0deg); }
-.skill-tags span.reveal{ transform:translateY(20px) scale(.8); }
-.about-portrait.reveal{ transform:translateX(-40px) rotate(-4deg); }
-.about-portrait.reveal.in-view{ transform:translateX(0) rotate(0deg); }
 
 /* ---------- eyebrow / labels ---------- */
 .eyebrow{
@@ -363,6 +354,7 @@ h1,h2,h3,h4{
 /* work preview grid (home) */
 .preview-grid{
   display:grid; grid-template-columns:repeat(3,1fr); gap:20px;
+  max-width:var(--container); margin:0 auto; padding:0 var(--edge);
 }
 .preview-card{
   position:relative;
