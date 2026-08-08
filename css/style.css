@@ -1,4 +1,4 @@
-/* ============================================================
+ /* ============================================================
    SAEED AHMED — PORTFOLIO
    Design tokens: paper / clay-purple / clay-yellow / coral
    Playful 3D-clay, bold condensed type, floating blob motif
@@ -70,15 +70,24 @@ h1,h2,h3,h4{
   100%{ transform:translate(0,0) rotate(0deg) scale(1); border-radius:62% 38% 55% 45%/48% 42% 58% 52%; }
 }
 .blob{
-  position:absolute; z-index:0; filter:blur(.5px);
+  position:absolute; z-index:0;
   animation:blobFloat 8s ease-in-out infinite;
   pointer-events:none;
   transition:transform .3s ease;
+  /* 3D clay shading: top-left glossy highlight + bottom-right deep shadow + soft ambient occlusion + drop shadow to lift off page */
+  background-image:
+    radial-gradient(circle at 30% 26%, rgba(255,255,255,.85) 0%, rgba(255,255,255,.35) 14%, rgba(255,255,255,0) 32%),
+    radial-gradient(circle at 72% 78%, rgba(0,0,0,.35) 0%, rgba(0,0,0,0) 55%);
+  background-blend-mode:soft-light, multiply;
+  box-shadow:
+    inset 8px 10px 18px rgba(255,255,255,.5),
+    inset -10px -14px 22px rgba(0,0,0,.28),
+    0 18px 26px -10px rgba(20,15,40,.35);
 }
-.blob.purple{ background:var(--purple); border-radius:62% 38% 55% 45%/48% 42% 58% 52%; }
-.blob.yellow{ background:var(--yellow); border-radius:45% 55% 40% 60%/55% 45% 55% 45%; animation-duration:6.5s; animation-delay:-3s; }
-.blob.coral{ background:var(--coral); border-radius:55% 45% 60% 40%/40% 60% 40% 60%; animation-duration:9.5s; animation-delay:-5s; }
-.blob.mint{ background:var(--mint); border-radius:40% 60% 45% 55%/60% 40% 60% 40%; animation-duration:7s; animation-delay:-1.5s; }
+.blob.purple{ background-color:var(--purple); border-radius:62% 38% 55% 45%/48% 42% 58% 52%; }
+.blob.yellow{ background-color:var(--yellow); border-radius:45% 55% 40% 60%/55% 45% 55% 45%; animation-duration:6.5s; animation-delay:-3s; }
+.blob.coral{ background-color:var(--coral); border-radius:55% 45% 60% 40%/40% 60% 40% 60%; animation-duration:9.5s; animation-delay:-5s; }
+.blob.mint{ background-color:var(--mint); border-radius:40% 60% 45% 55%/60% 40% 60% 40%; animation-duration:7s; animation-delay:-1.5s; }
 .hero .blob, .cta-banner .blob{ animation:blobFloat 8s ease-in-out infinite, popIn .7s cubic-bezier(.3,1.4,.5,1) both; }
 
 /* ---------- entrance animation ---------- */
@@ -211,14 +220,15 @@ h1,h2,h3,h4{
   border:2px solid var(--ink);
   border-radius:999px;
   color:var(--ink);
-  background:var(--paper-2);
+  background-color:var(--paper-2);
+  background-image:linear-gradient(to bottom, rgba(255,255,255,.9), rgba(255,255,255,0) 55%);
   box-shadow:0 4px 0 var(--ink);
   transition:transform .18s cubic-bezier(.4,1.6,.6,1), box-shadow .18s ease, background .2s ease;
 }
-.btn:hover{ transform:translate(-1px,2px) rotate(-1deg); box-shadow:0 2px 0 var(--ink); background:var(--yellow-tint); }
+.btn:hover{ transform:translate(-1px,2px) rotate(-1deg); box-shadow:0 2px 0 var(--ink); background-color:var(--yellow-tint); }
 .btn:active{ transform:translate(0,4px); box-shadow:0 0 0 var(--ink); }
-.btn.solid{ background:var(--purple); color:#fff; }
-.btn.solid:hover{ background:var(--purple-dp); }
+.btn.solid{ background-color:var(--purple); background-image:linear-gradient(to bottom, rgba(255,255,255,.4), rgba(255,255,255,0) 55%); color:#fff; }
+.btn.solid:hover{ background-color:var(--purple-dp); }
 
 /* ---------- footer ---------- */
 .site-footer{
@@ -337,20 +347,21 @@ h1,h2,h3,h4{
 .preview-card{
   position:relative;
   aspect-ratio:4/5;
-  background:var(--purple);
+  background-color:var(--purple);
+  background-image:radial-gradient(circle at 22% 18%, rgba(255,255,255,.55) 0%, rgba(255,255,255,0) 40%);
   border:2px solid var(--ink); border-radius:var(--r-lg);
   padding:26px;
   display:flex; flex-direction:column; justify-content:flex-end;
   overflow:hidden;
-  box-shadow:0 6px 0 var(--ink);
+  box-shadow:0 6px 0 var(--ink), inset -8px -12px 20px rgba(0,0,0,.16), inset 6px 8px 14px rgba(255,255,255,.35);
   transition:transform .2s ease, box-shadow .2s ease;
 }
-.preview-card:nth-child(2){ background:var(--yellow); }
-.preview-card:nth-child(3){ background:var(--coral); }
+.preview-card:nth-child(2){ background-color:var(--yellow); }
+.preview-card:nth-child(3){ background-color:var(--coral); }
 .preview-card .tag{ font-family:var(--font-mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink); margin-bottom:8px; font-weight:700; opacity:.7;}
 .preview-card h4{ font-size:21px; font-weight:400; color:var(--ink); text-transform:uppercase; }
 .preview-card{ transition:transform .2s cubic-bezier(.4,1.6,.6,1), box-shadow .2s ease; }
-.preview-card:hover{ transform:translate(-2px,3px) rotate(-1deg) scale(1.02); box-shadow:0 3px 0 var(--ink); }
+.preview-card:hover{ transform:translate(-2px,3px) rotate(-1deg) scale(1.02); box-shadow:0 3px 0 var(--ink), inset -8px -12px 20px rgba(0,0,0,.16), inset 6px 8px 14px rgba(255,255,255,.35); }
 @media (max-width:820px){ .preview-grid{ grid-template-columns:1fr 1fr; } }
 @media (max-width:520px){ .preview-grid{ grid-template-columns:1fr; } }
 
