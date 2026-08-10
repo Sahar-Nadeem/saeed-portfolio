@@ -295,7 +295,7 @@ h1,h2,h3,h4{
 /* ---------- hero character illustration ---------- */
 @keyframes charFloat{
   0%,100%{ transform:translateY(0) rotate(0deg); }
-  50%{ transform:translateY(-20px) rotate(1.2deg); }
+  50%{ transform:translateY(-12px) rotate(1.2deg); }
 }
 .hero-character{
   position:relative;
@@ -324,7 +324,13 @@ h1,h2,h3,h4{
     transform:translateY(-50%);
     width:clamp(260px, 30vw, 460px);
     max-width:none;
+    max-height:70vh;
     margin:0;
+  }
+  .hero-character-inner img{
+    max-height:70vh;
+    width:auto;
+    max-width:100%;
   }
 }
 
