@@ -150,3 +150,45 @@ if (navToggle && navLinks) {
   window.addEventListener('resize', onScroll);
   update();
 })();
+
+// ---------- work image lightbox (click to view full size, X to close) ----------
+(function workLightbox() {
+  const grid = document.querySelector('.work-grid');
+  if (!grid) return;
+
+  const lightbox = document.createElement('div');
+  lightbox.className = 'lightbox';
+  lightbox.innerHTML =
+    '<button class="lightbox-close" aria-label="Close">✕</button>' +
+    '<img class="lightbox-img" src="" alt="">';
+  document.body.appendChild(lightbox);
+
+  const lightboxImg = lightbox.querySelector('.lightbox-img');
+  const closeBtn = lightbox.querySelector('.lightbox-close');
+
+  function openLightbox(img) {
+    lightboxImg.src = img.getAttribute('src');
+    lightboxImg.alt = img.getAttribute('alt') || '';
+    lightbox.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  grid.addEventListener('click', (e) => {
+    const img = e.target.closest('.work-thumb img');
+    if (!img) return;
+    openLightbox(img);
+  });
+
+  closeBtn.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+})();
