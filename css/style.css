@@ -546,7 +546,7 @@ h1,h2,h3,h4{
 }
 .work-card{ cursor:default; }
 .work-thumb{
-  aspect-ratio:4/5;
+  aspect-ratio:4549/3098;
   background:var(--purple-tint);
   border:2px solid var(--ink); border-radius:var(--r-lg);
   position:relative;
@@ -554,7 +554,9 @@ h1,h2,h3,h4{
   overflow:hidden;
   box-shadow:0 5px 0 var(--shadow);
   transition:transform .2s cubic-bezier(.4,1.6,.6,1), box-shadow .2s ease;
+  cursor:zoom-in;
 }
+.work-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
 .work-card:hover .work-thumb{ transform:translate(-2px,3px) rotate(-.6deg); box-shadow:0 2px 0 var(--shadow); }
 .work-card:nth-child(4n+2) .work-thumb{ background:var(--yellow-tint); }
 .work-card:nth-child(4n+3) .work-thumb{ background:var(--coral-tint); }
@@ -570,7 +572,35 @@ h1,h2,h3,h4{
 .work-meta .wtag{ font-family:var(--font-mono); font-size:10px; color:var(--purple-lt); text-transform:uppercase; letter-spacing:.06em; font-weight:700; }
 
 @media (max-width:920px){ .work-grid{ grid-template-columns:repeat(2,1fr); } }
-@media (max-width:560px){ .work-grid{ grid-template-columns:1fr; } .work-thumb{ aspect-ratio:16/11; } }
+@media (max-width:560px){ .work-grid{ grid-template-columns:1fr; } .work-thumb{ aspect-ratio:4549/3098; } }
+
+/* ---------- lightbox (click a work image to view full size) ---------- */
+.lightbox{
+  position:fixed; inset:0; z-index:1000;
+  background:rgba(6,5,10,.94);
+  display:flex; align-items:center; justify-content:center;
+  opacity:0; visibility:hidden;
+  transition:opacity .25s ease, visibility .25s ease;
+  padding:48px 20px;
+}
+.lightbox.is-open{ opacity:1; visibility:visible; }
+.lightbox-img{
+  max-width:100%; max-height:100%;
+  border:2px solid var(--ink); border-radius:var(--r-md);
+  box-shadow:0 30px 60px rgba(0,0,0,.55);
+  display:block;
+}
+.lightbox-close{
+  position:absolute; top:20px; right:20px; z-index:2;
+  width:48px; height:48px; border-radius:50%;
+  background:var(--ink); color:var(--paper); border:none; font-size:20px; font-weight:700; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition:background .2s ease, color .2s ease, transform .2s ease;
+}
+.lightbox-close:hover{ background:var(--purple); color:#fff; transform:scale(1.06); }
+@media (max-width:600px){
+  .lightbox-close{ top:12px; right:12px; width:42px; height:42px; }
+}
 
 .note-card{
   border:2px dashed var(--line); border-radius:var(--r-md); padding:26px; margin-top:60px;
