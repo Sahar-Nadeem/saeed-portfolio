@@ -77,6 +77,7 @@ h1,h2,h3,h4{
   pointer-events:none;
   transition:transform .3s ease;
   display:flex; align-items:center; justify-content:center;
+  /* 3D clay shading: top-left glossy highlight + bottom-right deep shadow + soft ambient occlusion + drop shadow to lift off page */
   background-image:
     radial-gradient(circle at 30% 26%, rgba(255,255,255,.85) 0%, rgba(255,255,255,.35) 14%, rgba(255,255,255,0) 32%),
     radial-gradient(circle at 72% 78%, rgba(0,0,0,.35) 0%, rgba(0,0,0,0) 55%);
@@ -324,7 +325,13 @@ h1,h2,h3,h4{
     transform:translateY(-50%);
     width:clamp(260px, 30vw, 460px);
     max-width:none;
+    max-height:56vh;
     margin:0;
+  }
+  .hero-character-inner{ height:100%; display:flex; align-items:center; }
+  .hero-character-inner img{
+    width:auto; height:100%; max-height:56vh; max-width:100%;
+    object-fit:contain;
   }
 }
 
