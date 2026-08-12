@@ -151,7 +151,7 @@ if (navToggle && navLinks) {
   update();
 })();
 
-// ---------- work image lightbox (click to view full size, X to close) ----------
+// ---------- work image lightbox (click to view, prev/next to browse, X to close) ----------
 (function workLightbox() {
   const grid = document.querySelector('.work-grid');
   if (!grid) return;
@@ -160,15 +160,36 @@ if (navToggle && navLinks) {
   lightbox.className = 'lightbox';
   lightbox.innerHTML =
     '<button class="lightbox-close" aria-label="Close">✕</button>' +
-    '<img class="lightbox-img" src="" alt="">';
+    '<button class="lightbox-nav lightbox-prev" aria-label="Previous image">‹</button>' +
+    '<img class="lightbox-img" src="" alt="">' +
+    '<button class="lightbox-nav lightbox-next" aria-label="Next image">›</button>';
   document.body.appendChild(lightbox);
 
   const lightboxImg = lightbox.querySelector('.lightbox-img');
   const closeBtn = lightbox.querySelector('.lightbox-close');
+  const prevBtn = lightbox.querySelector('.lightbox-prev');
+  const nextBtn = lightbox.querySelector('.lightbox-next');
 
-  function openLightbox(img) {
+  let currentList = [];
+  let currentIndex = 0;
+
+  function visibleImages() {
+    // only images from cards that aren't hidden by the current filter
+    return Array.from(grid.querySelectorAll('.work-card')).filter(card => card.style.display !== 'none').map(card => card.querySelector('.work-thumb img')).filter(Boolean);
+  }
+
+  function showAt(index) {
+    if (!currentList.length) return;
+    currentIndex = (index + currentList.length) % currentList.length;
+    const img = currentList[currentIndex];
     lightboxImg.src = img.getAttribute('src');
     lightboxImg.alt = img.getAttribute('alt') || '';
+  }
+
+  function openLightbox(img) {
+    currentList = visibleImages();
+    const startIndex = currentList.indexOf(img);
+    showAt(startIndex === -1 ? 0 : startIndex);
     lightbox.classList.add('is-open');
     document.body.style.overflow = 'hidden';
   }
@@ -184,10 +205,20 @@ if (navToggle && navLinks) {
     openLightbox(img);
   });
 
+  prevBtn.addEventListener('click', (e) => { e.stopPropagation(); showAt(currentIndex - 1); });
+  nextBtn.addEventListener('click', (e) => { e.stopPropagation(); showAt(currentIndex + 1); });
+
   closeBtn.addEventListener('click', closeLightbox);
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) closeLightbox();
   });
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('is-open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') showAt(currentIndex + 1);
+    if (e.key === 'ArrowLeft') showAt(currentIndex - 1);
+  });
+})();
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeLightbox();
   });
