@@ -218,4 +218,4 @@ if (navToggle && navLinks) {
     if (e.key === 'ArrowRight') showAt(currentIndex + 1);
     if (e.key === 'ArrowLeft') showAt(currentIndex - 1);
   });
-
+})();
