@@ -219,7 +219,3 @@ if (navToggle && navLinks) {
     if (e.key === 'ArrowLeft') showAt(currentIndex - 1);
   });
 })();
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeLightbox();
-  });
-})();
