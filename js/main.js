@@ -219,3 +219,11 @@ if (navToggle && navLinks) {
     if (e.key === 'ArrowLeft') showAt(currentIndex - 1);
   });
 })();
+// ---------- apply work filter from URL (?filter=logos etc.) ----------
+(function applyFilterFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  const filter = params.get('filter');
+  if (!filter) return;
+  const btn = document.querySelector(`.filter-btn[data-filter="${filter}"]`);
+  if (btn) btn.click();
+})();
