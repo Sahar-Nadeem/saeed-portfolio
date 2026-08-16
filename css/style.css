@@ -321,8 +321,8 @@ h1,h2,h3,h4{
 @media (min-width:901px){
   .hero-character{
     position:absolute;
-    right:clamp(0px, 3vw, 70px); top:50%; bottom:auto; left:auto;
-    transform:translateY(-50%);
+    right:clamp(-10px, 1vw, 20px); top:50%; bottom:auto; left:auto;
+   transform:translateY(-50%);
     width:clamp(320px, 36vw, 620px);
     max-width:none;
     max-height:68vh;
