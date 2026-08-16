@@ -385,12 +385,13 @@ h1,h2,h3,h4{
    ============================================================ */
 .intro-grid{ display:grid; grid-template-columns:1.3fr 1fr; gap:70px; align-items:center; }
 .lede{ font-family:var(--font-display); text-transform:none; font-size:clamp(18px,2vw,24px); line-height:1.5; font-weight:400; letter-spacing:0; }
-.stat-list{ display:flex; flex-direction:column; gap:2px; }
+.stat-list{ display:flex; flex-direction:column; gap:0; }
 .stat-row{
   position:relative;
   display:flex; align-items:center; gap:22px;
   padding:32px 100px 32px 28px; border:none; border-radius:28px;
-  background:var(--paper-2); box-shadow:0 4px 0 var(--shadow);
+  background:var(--paper-2); 
+ box-shadow:0 2px 0 var(--shadow);
   overflow:hidden;
   transition:transform .2s cubic-bezier(.4,1.6,.6,1), box-shadow .2s ease;
 }
