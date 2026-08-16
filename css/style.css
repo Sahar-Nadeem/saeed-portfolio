@@ -385,7 +385,7 @@ h1,h2,h3,h4{
    ============================================================ */
 .intro-grid{ display:grid; grid-template-columns:1.3fr 1fr; gap:70px; align-items:center; }
 .lede{ font-family:var(--font-display); text-transform:none; font-size:clamp(18px,2vw,24px); line-height:1.5; font-weight:400; letter-spacing:0; }
-.stat-list{ display:flex; flex-direction:column; gap:0; }
+.stat-list{ display:flex; flex-direction:column; gap:2; }
 .stat-row{
   position:relative;
   display:flex; align-items:center; gap:22px;
