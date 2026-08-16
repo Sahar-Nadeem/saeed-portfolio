@@ -167,7 +167,7 @@ h1,h2,h3,h4{
   display:flex; align-items:center; gap:10px;
   margin:0 auto;
   width:fit-content;
-  padding: 56px 0;
+  padding: 24px 0;
 }
 .cmyk-divider .dot{ width:8px; height:8px; border-radius:50%; }
 .cmyk-divider .dot.c{ background:var(--purple); }
@@ -275,7 +275,7 @@ h1,h2,h3,h4{
 
 /* ---------- section shells ---------- */
 .section{ padding:120px 0; position:relative; }
-.hero + .section{ padding-top:20px; }
+.hero + .section{ padding-top:20px; padding-bottom:40px; }
 .section.tight{ padding:80px 0; }
 .section-head{ margin-bottom:56px; max-width:640px; }
 .section-head h2{ font-size:clamp(30px,4vw,46px); margin-top:16px; }
