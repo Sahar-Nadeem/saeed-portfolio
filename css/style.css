@@ -519,7 +519,7 @@ h1,h2,h3,h4{
 .about-lede{ font-family:var(--font-display); text-transform:none; font-size:clamp(20px,2.4vw,27px); line-height:1.45; color:var(--ink); margin-bottom:18px;}
 .about-body p{ color:var(--ink-soft); line-height:1.85; margin-bottom:18px; font-size:15px; font-weight:500; }
 
-.skill-tags{ display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
+.skill-tags{ display:flex; flex-wrap:wrap; gap:10px; margin-top:auto; }
 .skill-tags span{
   font-family:var(--font-body); font-size:12.5px; font-weight:700; text-transform:uppercase;
   border:2px solid var(--ink); border-radius:999px; padding:9px 16px; color:var(--ink); background:var(--paper-2);
