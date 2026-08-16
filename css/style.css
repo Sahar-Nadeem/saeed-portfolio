@@ -428,6 +428,9 @@ h1,h2,h3,h4{
 }
 .preview-card:nth-child(2){ background-color:var(--yellow); }
 .preview-card:nth-child(3){ background-color:var(--coral); }
+.preview-card:nth-child(4){ background-color:var(--mint); }
+.preview-card:nth-child(5){ background-color:var(--purple); }
+.preview-card:nth-child(6){ background-color:var(--yellow); }
 .preview-card .tag{ font-family:var(--font-mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink); margin-bottom:8px; font-weight:700; opacity:.7;}
 .preview-card h4{ font-size:21px; font-weight:400; color:var(--ink); text-transform:uppercase; }
 .preview-card{ transition:transform .2s cubic-bezier(.4,1.6,.6,1), box-shadow .2s ease; }
