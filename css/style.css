@@ -415,7 +415,7 @@ h1,h2,h3,h4{
 }
 .preview-card{
   position:relative;
-  aspect-ratio:4/5;
+  aspect-ratio:1/1;
   background-color:var(--purple);
   background-image:radial-gradient(circle at 22% 18%, rgba(255,255,255,.55) 0%, rgba(255,255,255,0) 40%);
   border:2px solid var(--ink); border-radius:var(--r-lg);
