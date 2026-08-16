@@ -403,7 +403,7 @@ h1,h2,h3,h4{
 .stat-row:nth-child(2)::before{ background:var(--yellow); }
 .stat-row:nth-child(3)::before{ background:var(--coral); }
 .stat-row:hover{ transform:translate(-3px,3px); box-shadow:0 1px 0 var(--shadow); }
-.stat-row .num{ font-family:var(--font-display); font-size:44px; color:var(--purple); flex:none; position:relative; z-index:1; }
+.stat-row .num{ font-family:var(--font-display); font-weight:900; font-size:44px; color:var(--purple); flex:none; position:relative; z-index:1; }
 .stat-row:nth-child(2) .num{ color:var(--yellow); }
 .stat-row:nth-child(3) .num{ color:var(--coral); }
 .stat-row .label{ font-size:15px; color:var(--ink-soft); font-weight:500; line-height:1.5; position:relative; z-index:1; }
