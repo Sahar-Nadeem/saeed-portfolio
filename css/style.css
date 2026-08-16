@@ -472,7 +472,9 @@ h1,h2,h3,h4{
 /* ============================================================
    ABOUT PAGE
    ============================================================ */
-.about-grid{ display:grid; grid-template-columns:.85fr 1.15fr; gap:60px; }
+.about-grid{ display:grid; grid-template-columns:1.15fr .85fr; gap:60px; }
+.about-grid .about-portrait{ order:2; }
+.about-grid > div{ order:1; }
 .about-portrait{
   aspect-ratio:3/4;
   background:var(--yellow);
