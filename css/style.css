@@ -389,9 +389,8 @@ h1,h2,h3,h4{
 .stat-row{
   position:relative;
   display:flex; align-items:center; gap:22px;
-  padding:32px 100px 32px 28px; border:none; border-radius:28px;
-  background:var(--paper-2); 
- box-shadow:0 2px 0 var(--shadow);
+  padding:18px 90px 18px 24px; border:1.5px solid var(--line); border-radius:28px;
+  background:var(--paper-2); box-shadow:0 2px 0 var(--shadow);
   overflow:hidden;
   transition:transform .2s cubic-bezier(.4,1.6,.6,1), box-shadow .2s ease;
 }
@@ -409,7 +408,7 @@ h1,h2,h3,h4{
 .stat-row:nth-child(3) .num{ color:var(--coral); }
 .stat-row .label{ font-size:15px; color:var(--ink-soft); font-weight:500; line-height:1.5; position:relative; z-index:1; }
 .stat-tag{
-  position:absolute; bottom:22px; right:28px; z-index:1;
+  position:absolute; bottom:12px; right:22px; z-index:1;
   font-size:10px; letter-spacing:.14em; text-transform:uppercase;
   color:var(--ink-faint); font-weight:700;
 }
