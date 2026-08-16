@@ -352,11 +352,10 @@ h1,h2,h3,h4{
   display:flex; align-items:center; gap:10px; margin-bottom:24px; font-weight:700; text-transform:uppercase;
 }
 .hero-slide h2{
-  font-size:clamp(46px,9vw,110px); text-transform:uppercase;
+  font-size:clamp(46px,9vw,110px); text-transform:uppercase; font-weight:700;
 }
 .hero-slide h2 em{ font-style:normal; color:var(--purple); -webkit-text-stroke:0; display:inline-block; }
-.hero-slide p{ color:var(--ink-soft); max-width:480px; margin:22px 0 32px; font-size:17px; line-height:1.6; font-weight:500; }
-
+.hero-slide p{ color:var(--ink-soft); max-width:480px; margin:22px 0 32px; font-size:17px; line-height:1.6; font-weight:600; }
 .hero-scroll{ display:none; }
 .hero-controls{
   position:relative; z-index:2;
