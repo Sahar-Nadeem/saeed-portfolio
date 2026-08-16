@@ -315,7 +315,7 @@ h1,h2,h3,h4{
   -webkit-mask-image:linear-gradient(to bottom, #000 72%, transparent 96%);
   mask-image:linear-gradient(to bottom, #000 72%, transparent 96%);
 }
-.hero-slide h2{ position:relative; z-index:2; max-width:740px; }
+.hero-slide p{ color:var(--ink-soft); max-width:480px; margin:22px 0 32px; font-size:17px; line-height:1.6; font-weight:600; }
 .hero-slide p{ position:relative; z-index:2; }
 
 @media (min-width:901px){
