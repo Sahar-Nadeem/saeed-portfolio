@@ -389,7 +389,7 @@ h1,h2,h3,h4{
 .stat-row{
   position:relative;
   display:flex; align-items:center; gap:22px;
-  padding:18px 90px 18px 24px; border:1px solid rgba(255,255,255,.08); border-radius:28px;
+  padding:18px 90px 18px 24px; border:1px solid rgba(255,255,255,.22); border-radius:28px;
   background:var(--paper-2);
   overflow:hidden;
   box-shadow:
