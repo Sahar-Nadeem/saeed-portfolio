@@ -351,7 +351,7 @@ h1,h2,h3,h4{
   display:flex; align-items:center; gap:10px; margin-bottom:24px; font-weight:700; text-transform:uppercase;
 }
 .hero-slide h2{
-  font-size:clamp(46px,9vw,110px); text-transform:uppercase;
+  font-size:clamp(46px,9vw,110px); text-transform:uppercase; font-weight:700;
   word-spacing:-0.15em; letter-spacing:-0.01em;
 }
 .hero-slide h2 em{ font-style:normal; color:var(--purple); -webkit-text-stroke:0; display:inline-block; }
