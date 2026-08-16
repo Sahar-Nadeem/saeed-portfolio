@@ -96,7 +96,7 @@ if (navToggle && navLinks) {
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const selectors = [
-    '.section-head', '.lede', '.stat-row', '.preview-card',
+    '.section-head', '.lede', '.preview-card',
     '.cta-banner h2', '.cta-banner p',
     '.about-portrait', '.about-lede', '.about-body p', '.skill-tags span',
     '.timeline-item', '.mini-list li',
