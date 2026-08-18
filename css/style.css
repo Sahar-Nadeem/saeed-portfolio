@@ -527,8 +527,8 @@ h1,h2,h3,h4{
 .about-grid > div{ order:1; }
 .about-portrait{
   aspect-ratio:3/4;
-  background:var(--yellow);
-  border:2px solid var(--ink); border-radius:var(--r-lg);
+  background:var(--paper-2);
+   border:2px solid var(--ink); border-radius:var(--r-lg);
   position:relative;
   display:flex; align-items:flex-end; padding:22px;
   overflow:hidden;
