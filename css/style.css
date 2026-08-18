@@ -108,6 +108,17 @@ h1,h2,h3,h4{
   70%{ opacity:1; transform:scale(1.08) rotate(2deg); }
   100%{ opacity:1; transform:scale(1) rotate(0deg); }
 }
+.blob.img-blob{
+  background-color:transparent;
+  background-image:none;
+  box-shadow:none;
+}
+.blob.img-blob img{
+  width:72%;
+  height:72%;
+  object-fit:contain;
+  filter:drop-shadow(0 10px 16px rgba(0,0,0,.4));
+}
 
 /* ---------- scroll motion (JS sets transform/opacity inline per scroll frame — see main.js) ---------- */
 .section-head, .lede, .stat-row, .preview-card,
