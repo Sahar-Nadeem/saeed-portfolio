@@ -515,7 +515,6 @@ h1,h2,h3,h4{
 .about-grid .about-portrait{
   order:2;
   flex:1 1 320px;
-  aspect-ratio:auto;
 }
 .about-grid > div:not(.about-portrait){
   order:1;
