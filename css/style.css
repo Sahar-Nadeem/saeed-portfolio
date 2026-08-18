@@ -119,6 +119,16 @@ h1,h2,h3,h4{
   object-fit:contain;
   filter:drop-shadow(0 10px 16px rgba(0,0,0,.4));
 }
+@keyframes imgBlobOrbit{
+  0%{ transform:translate(0,0) rotate(0deg); }
+  25%{ transform:translate(14px,-14px) rotate(6deg); }
+  50%{ transform:translate(0,-24px) rotate(0deg); }
+  75%{ transform:translate(-14px,-14px) rotate(-6deg); }
+  100%{ transform:translate(0,0) rotate(0deg); }
+}
+.blob.img-blob{
+  animation:imgBlobOrbit 6s ease-in-out infinite !important;
+}
 
 /* ---------- scroll motion (JS sets transform/opacity inline per scroll frame — see main.js) ---------- */
 .section-head, .lede, .stat-row, .preview-card,
