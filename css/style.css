@@ -330,10 +330,11 @@ h1,h2,h3,h4{
     margin:0;
   }
   .hero-character-inner{ height:100%; display:flex; align-items:center; }
-  .hero-character-inner img{
+   .hero-character-inner img{
     width:auto; height:100%; max-height:68vh; max-width:100%;
     object-fit:contain;
   }
+}
 
 .hero-slides{ position:relative; }
 .hero-slide{
