@@ -714,7 +714,7 @@ h1,h2,h3,h4{
 /* ============================================================
    CONTACT PAGE
    ============================================================ */
-.contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; }
+.contact-grid{ display:flex; flex-direction:column; gap:32px; }
 .contact-grid > div:first-child{
   border:2px solid var(--ink); border-radius:var(--r-lg);
   background:var(--paper-2);
@@ -727,7 +727,14 @@ h1,h2,h3,h4{
   padding:32px;
   box-shadow:0 6px 0 var(--shadow);
 }
-@media (max-width:860px){
+.contact-grid > div:first-child .contact-list{
+  display:grid; grid-template-columns:1fr 1fr; gap:12px;
+}
+.contact-grid > div:first-child .social-row{
+  margin-top:20px;
+}
+@media (max-width:700px){
+  .contact-grid > div:first-child .contact-list{ grid-template-columns:1fr; }
   .contact-grid > div:first-child,
   .contact-grid > div:last-child{ padding:24px; }
 }
