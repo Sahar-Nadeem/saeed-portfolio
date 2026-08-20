@@ -81,13 +81,20 @@ if (navToggle && navLinks) {
   const form = document.querySelector('#contact-form');
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const name = form.name.value.trim();
     const email = form.email.value.trim();
+    const projectType = form['project-type'].value.trim();
+    const timeline = form.timeline.value.trim();
+    const budget = form.budget.value.trim();
     const message = form.message.value.trim();
 
-    const text = `New project inquiry from *${name}*\n\nEmail: ${email}\n\n${message}`;
+    let text = `New project inquiry from *${name}*\n\nEmail: ${email}\nProject type: ${projectType}`;
+    if (timeline) text += `\nTimeline: ${timeline}`;
+    if (budget) text += `\nBudget: ${budget}`;
+    text += `\n\n${message}`;
+
     const whatsappUrl = `https://wa.me/923102264983?text=${encodeURIComponent(text)}`;
 
     window.open(whatsappUrl, '_blank');
