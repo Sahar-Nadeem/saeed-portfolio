@@ -738,12 +738,13 @@ h1,h2,h3,h4{
   display:block; font-family:var(--font-mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
   color:var(--purple-lt); margin-bottom:10px; font-weight:700;
 }
-.form-field input, .form-field textarea{
+.form-field input, .form-field textarea, .form-field select{
   width:100%; background:var(--paper-2); border:2px solid var(--ink); border-radius:var(--r-sm);
   color:var(--ink); font-family:var(--font-body); font-size:15px; padding:14px 16px; font-weight:600;
   transition:box-shadow .2s ease;
+  cursor:pointer;
 }
-.form-field input:focus, .form-field textarea:focus{ outline:none; box-shadow:0 4px 0 var(--purple); }
+.form-field input:focus, .form-field textarea:focus, .form-field select:focus{ outline:none; box-shadow:0 4px 0 var(--purple); }
 .form-field textarea{ resize:vertical; min-height:100px; }
 
 @media (max-width:860px){ .contact-grid{ grid-template-columns:1fr; gap:48px; } }
