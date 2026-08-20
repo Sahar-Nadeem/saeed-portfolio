@@ -76,18 +76,21 @@ if (navToggle && navLinks) {
   });
 })();
 
-// ---------- contact form (mailto handoff) ----------
+// ---------- contact form (opens WhatsApp with prefilled message) ----------
 (function contactForm() {
   const form = document.querySelector('#contact-form');
   if (!form) return;
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const name = form.name.value.trim();
     const email = form.email.value.trim();
     const message = form.message.value.trim();
-    const subject = encodeURIComponent(`Project inquiry from ${name}`);
-    const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
-    window.location.href = `mailto:saeedahmedaa00@gmail.com?subject=${subject}&body=${body}`;
+
+    const text = `New project inquiry from *${name}*\n\nEmail: ${email}\n\n${message}`;
+    const whatsappUrl = `https://wa.me/923102264983?text=${encodeURIComponent(text)}`;
+
+    window.open(whatsappUrl, '_blank');
   });
 })();
 
