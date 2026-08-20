@@ -714,14 +714,22 @@ h1,h2,h3,h4{
 /* ============================================================
    CONTACT PAGE
    ============================================================ */
-.contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:stretch; }
+.contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; }
 .contact-grid > div:first-child{
-  display:flex;
-  flex-direction:column;
+  border:2px solid var(--ink); border-radius:var(--r-lg);
+  background:var(--paper-2);
+  padding:32px;
+  box-shadow:0 6px 0 var(--shadow);
 }
-.contact-grid > div:first-child > .eyebrow:nth-of-type(2){
-  margin-top:auto;
-  padding-top:48px;
+.contact-grid > div:last-child{
+  border:2px solid var(--ink); border-radius:var(--r-lg);
+  background:var(--paper-2);
+  padding:32px;
+  box-shadow:0 6px 0 var(--shadow);
+}
+@media (max-width:860px){
+  .contact-grid > div:first-child,
+  .contact-grid > div:last-child{ padding:24px; }
 }
 .contact-list{ margin-top:32px; }
 .contact-list li{
