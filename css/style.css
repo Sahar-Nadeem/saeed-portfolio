@@ -714,7 +714,12 @@ h1,h2,h3,h4{
 /* ============================================================
    CONTACT PAGE
    ============================================================ */
-.contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:70px; }
+.contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:stretch; }
+.contact-grid > div:first-child{
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
 .contact-list{ margin-top:32px; }
 .contact-list li{
   padding:20px; border:2px solid var(--ink); border-radius:var(--r-sm); margin-bottom:12px;
