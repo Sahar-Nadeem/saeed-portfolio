@@ -64,13 +64,39 @@
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required>
           </div>
-          <div class="form-field">
+                    <div class="form-field">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required>
           </div>
           <div class="form-field">
+            <label for="project-type">Project type</label>
+            <select id="project-type" name="project-type" required>
+              <option value="" disabled selected>Select a category</option>
+              <option value="Logo / Brand Identity">Logo / Brand Identity</option>
+              <option value="Packaging">Packaging</option>
+              <option value="Social Media Design">Social Media Design</option>
+              <option value="Print / Publishing">Print / Publishing</option>
+              <option value="Event Branding / Standees">Event Branding / Standees</option>
+              <option value="Outdoor Marketing">Outdoor Marketing</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="timeline">Timeline</label>
+            <input type="text" id="timeline" name="timeline" placeholder="e.g. 2 weeks, ASAP, flexible">
+          </div>
+          <div class="form-field">
+            <label for="budget">Budget (optional)</label>
+            <select id="budget" name="budget">
+              <option value="" selected>Prefer not to say</option>
+              <option value="Under PKR 20,000">Under PKR 20,000</option>
+              <option value="PKR 20,000 – 50,000">PKR 20,000 – 50,000</option>
+              <option value="PKR 50,000 – 100,000">PKR 50,000 – 100,000</option>
+              <option value="PKR 100,000+">PKR 100,000+</option>
+            </select>
+          </div>
+          <div class="form-field">
             <label for="message">Project details</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
           </div>
           <button type="submit" class="btn solid">Send message →</button>
         </form>
